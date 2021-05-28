@@ -1,0 +1,41 @@
+mat-card-title {
+  color: goldenrod;
+  text-decoration: underline;
+  font-size: 1vw;
+  margin-top: 10px;
+}
+
+div {
+  color: rgb(3, 230, 238)
+}
+
+input {
+  color: hotpink;
+}
+
+h1 {
+  text-align: center;
+  text-decoration: underline;
+}
+
+.mat-radio-button~.mat-radio-button {
+  margin-left: 16px;
+}
+
+.mat-radio-group {
+  display: flex;
+
+  .mat-radio-button {
+    flex: 1;
+  }
+}
+
+#mainCard {
+  height: 40vw;
+}
+
+#mainCardContent {
+  height: 40vw;
+  overflow-y: scroll;
+}
+

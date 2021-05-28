@@ -1,0 +1,43 @@
+<mat-card *ngIf='immunization'>
+  <mat-card-header>
+    <mat-card-title>
+      <p id="title">{{immunization.patient.display}}</p>
+    </mat-card-title>
+    <mat-card-subtitle>
+      <p id="subtitle">{{immunization.status}}</p>
+    </mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <p class="content">{{formatDate(immunization.occurrenceString) | date: 'yyyy.MMMM.dd.'}}</p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button id="update" mat-button (click)="onUpdate(immunization.id!)">UPDATE</button>
+    <button id="delete" mat-button (click)="onDelete(immunization.id!)">DELETE</button>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <p id="moreDetails">More details<p>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <mat-divider></mat-divider>
+      <div *ngIf='immunization.encounter'>
+        <p class="more" *ngIf='immunization.encounter.display'>encounter : {{immunization.encounter.display}} </p>
+      </div>
+      <p class="more" *ngIf='immunization.expirationDate'>expirationDate :
+        {{formatDate(immunization.expirationDate) | date: 'yyyy.MMMM.dd.'}} </p>
+      <p class="more" *ngIf='immunization.lotNumber'>lotNumber : {{immunization.lotNumber}} </p>
+      <p class="more" *ngIf='immunization.primarySource'>primarySource : {{immunization.primarySource}} </p>
+      <div *ngIf='immunization.identifier'>
+        <div *ngFor="let item of immunization.identifier; index as i" class="max-width" style="display: flex;">
+          <div *ngIf="item.system">
+            <p class="more">System{{i +1}}: {{item.system}}</p>
+          </div>
+          <div *ngIf="item.value">
+            <p class="more">Value{{i +1}}: {{item.value}}</p>
+          </div>
+        </div>
+      </div>
+
+    </mat-expansion-panel>
+  </mat-card-actions>
+</mat-card>

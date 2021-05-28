@@ -1,0 +1,64 @@
+mat-card {
+    margin: 20px;
+}
+
+mat-expansion-panel{
+    background-color: rgb(26, 177, 26);
+}
+
+mat-divider{
+    background-color: white;
+    padding-bottom: 0.5px;
+}
+
+mat-card-title {
+    margin: auto;
+    padding-bottom: 10px;
+}
+
+#moreDetails {
+    font-size: 1.2vw;
+    margin:auto;
+}
+
+span {
+    text-decoration: underline;
+    margin-right: 20px;
+}
+
+mat-card-header{
+    justify-content: center;
+}
+
+#title {
+    font-size: 1.5vw;
+}
+
+#subtitle {
+    font-size: 1.1vw;
+    color: yellowgreen;
+}
+
+.content {
+    font-size: 1vw;
+}
+
+.content:last-child{
+    color:rgb(22, 188, 218);
+    text-align: right;
+}
+
+#delete {
+    color: rgb(207, 65, 65);
+    font-size: 1vw;
+}
+
+#update {
+    color: rgb(245, 208, 0);
+    font-size: 1vw;
+}
+
+.more {
+    font-size: 1vw;
+    margin: 10px;
+}

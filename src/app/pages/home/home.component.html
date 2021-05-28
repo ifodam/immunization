@@ -1,0 +1,4 @@
+<app-nav></app-nav>
+<div [style.backgroundColor] = "'#242322'" >
+<app-immunization-card class="item" *ngFor="let item of list | async" [immunization]="item"></app-immunization-card>
+</div>

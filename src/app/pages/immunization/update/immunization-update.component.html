@@ -1,0 +1,130 @@
+<mat-card id="mainCard">
+  <mat-card-content id="mainCardContent" >
+
+<form [formGroup]="form" class="max-width" *ngIf='currentImmunization'>
+  <h2>UPDATE Immunization</h2>
+  <h1>{{currentImmunization.patient.display}}</h1>
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Patient</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-form-field class="max-width" color="accent">
+        <div formGroupName="patient" color="accent">
+          <input matInput placeholder="Who was immunized" focus formControlName="display" >
+        </div>
+      </mat-form-field>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Status</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-radio-group formControlName="status" class="max-width">
+        <mat-radio-button value="completed">completed</mat-radio-button>
+        <mat-radio-button value="entered-in-error">entered-in-error</mat-radio-button>
+        <mat-radio-button value="not-done">not-done</mat-radio-button>
+      </mat-radio-group>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Occurrence</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-form-field appearance="fill" class="max-width" color="accent">
+        <input  matInput [matDatepicker]="picker" formControlName="occurrenceString">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Encounter</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-form-field class="max-width" color="accent">
+        <div formGroupName="encounter" color="accent">
+          <input matInput placeholder="Encounter immunization was part of" focus formControlName="display">
+        </div>
+      </mat-form-field>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>PrimarySource</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-radio-group formControlName="primarySource" class="max-width">
+        <mat-radio-button value="true">true</mat-radio-button>
+        <mat-radio-button value="false">false</mat-radio-button>
+      </mat-radio-group>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>LotNumber</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-form-field class="max-width" color="accent">
+        <input matInput placeholder="Vaccine lot number" formControlName="lotNumber">
+      </mat-form-field>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>ExpirationDate</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-form-field appearance="fill" class="max-width" color="accent">
+        <input matInput [matDatepicker]="picker2" formControlName="expirationDate">
+        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+        <mat-datepicker #picker2></mat-datepicker>
+      </mat-form-field>
+    </mat-card-content>
+  </mat-card>
+
+
+  <mat-card class="margin-bottom" formArrayName="identifier">
+    <mat-card-header>
+      <mat-card-title>Identifiers</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <button id="addButton" mat-raised-button color="secondary" class="max-width margin-bottom" (click)="addIdentifier()">
+        <mat-icon>add</mat-icon>
+        Identifier
+      </button>
+      <span *ngFor="let item of getIdentifier.controls; let i = index" class="max-width" style="display: flex;">
+        <mat-form-field [formGroupName]="i" style="flex: 1 1;">
+          <mat-label>System {{i + 1}}</mat-label>
+          <input type="text" name="identifier" formControlName="system" matInput>
+        </mat-form-field>
+      </span>
+    </mat-card-content>
+    <mat-card-content>
+      <span *ngFor="let item of getIdentifier.controls; let i = index" class="max-width" style="display: flex;">
+        <mat-form-field [formGroupName]="i" style="flex: 1 1;">
+          <mat-label>Value {{i + 1}}</mat-label>
+          <input type="text" name="identifier" formControlName="value" matInput>
+        </mat-form-field>
+      </span>
+    </mat-card-content>
+  </mat-card>
+
+  <div style="display: flex; justify-content: flex-end; padding: 10px;">
+    <button mat-button (click)="dialogRef.close()" class="margin-right">CANCEL</button>
+    <button mat-button [mat-dialog-close]="form.value" [disabled]="form.invalid">UPDATE</button>
+  </div>
+</form>
+
+</mat-card-content>
+
+</mat-card>

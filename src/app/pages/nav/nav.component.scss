@@ -1,0 +1,21 @@
+[mat-button] {
+  text-transform: capitalize;
+}
+
+[mat-button]:not(:last-child) {
+  margin-right: 16px;
+}
+
+a[mat-button] {
+  font-size: xx-large;
+}
+
+a[mat-button]:hover{
+  color: rgb(151, 228, 27);
+}
+
+mat-toolbar-row{
+  display:flex; 
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
