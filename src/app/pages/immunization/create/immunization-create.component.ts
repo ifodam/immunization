@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
-import { getIdentifierForm } from '../../../shared/forms/identifier.form'
+import { getIdentifierForm } from '../../../shared/forms/identifier.form';
+import { getCodeableConceptForm } from '../../../shared/forms/codeableConcept.form';
 
 @Component({
   selector: 'app-immunization-create',
@@ -19,7 +20,7 @@ export class ImmunizationCreateComponent implements OnInit {
       status: this.fb.control(null, Validators.required),
       occurrenceString: this.fb.control(null, Validators.required),
       patient: this.fb.group({
-        display: this.fb.control(null)
+        display: this.fb.control(null, Validators.required)
       }),
       encounter: this.fb.group({
         display: this.fb.control(null)
@@ -29,7 +30,10 @@ export class ImmunizationCreateComponent implements OnInit {
       expirationDate: this.fb.control(''),
       identifier: this.fb.array([
         getIdentifierForm()
-      ])
+      ]),
+      vaccineCode: this.fb.group({
+        text: this.fb.control(null)
+      }),
     });
   }
 

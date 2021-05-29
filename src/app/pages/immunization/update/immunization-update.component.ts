@@ -25,7 +25,7 @@ export class ImmunizationUpdateComponent implements OnInit, OnDestroy {
       status: this.fb.control('', Validators.required),
       occurrenceString: this.fb.control('', Validators.required),
       patient: this.fb.group({
-        display: this.fb.control('')
+        display: this.fb.control('', Validators.required)
       }),
       encounter: this.fb.group({
         display: this.fb.control('')
@@ -35,7 +35,10 @@ export class ImmunizationUpdateComponent implements OnInit, OnDestroy {
       expirationDate: this.fb.control(''),
       identifier: this.fb.array([
         getIdentifierForm()
-      ])
+      ]),
+      vaccineCode: this.fb.group({
+        text: this.fb.control('')
+      }),
     });
   }
 
@@ -56,7 +59,7 @@ export class ImmunizationUpdateComponent implements OnInit, OnDestroy {
   }
 
   formatDate(date: any): string {
-    if(date === '') {
+    if (date === '') {
       return '';
     }
     return date.toDate();
@@ -75,6 +78,9 @@ export class ImmunizationUpdateComponent implements OnInit, OnDestroy {
       primarySource: this.currentImmunization?.primarySource,
       lotNumber: this.currentImmunization?.lotNumber,
       expirationDate: this.formatDate(this.currentImmunization?.expirationDate),
+      vaccineCode: {
+        text: this.currentImmunization?.vaccineCode.text,
+      },
     });
   }
 

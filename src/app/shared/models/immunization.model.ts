@@ -3,7 +3,7 @@ export interface Immunization {
     identifier?: Identifier[];
     status: 'completed' | 'entered-in-error' | 'not-done';
     statusReason?: CodeableConcept;
-    vaccineCode?: CodeableConcept;
+    vaccineCode: CodeableConcept;
     patient: Reference;
     encounter?: Reference;
     occurrenceString: string;

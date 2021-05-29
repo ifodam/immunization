@@ -4,6 +4,7 @@
       <p id="title">{{immunization.patient.display}}</p>
     </mat-card-title>
     <mat-card-subtitle>
+      <p id="subtitle">{{immunization.vaccineCode.text}}</p>
       <p id="subtitle">{{immunization.status}}</p>
     </mat-card-subtitle>
   </mat-card-header>
@@ -26,14 +27,15 @@
       <p class="more" *ngIf='immunization.expirationDate'>expirationDate :
         {{formatDate(immunization.expirationDate) | date: 'yyyy.MMMM.dd.'}} </p>
       <p class="more" *ngIf='immunization.lotNumber'>lotNumber : {{immunization.lotNumber}} </p>
-      <p class="more" *ngIf='immunization.primarySource'>primarySource : {{immunization.primarySource}} </p>
+      <p class="more" *ngIf='immunization.primarySource'>primarySource : {{immunization.primarySource}} </p>  
       <div *ngIf='immunization.identifier'>
+        <p class="more">Identifier(s):</p>
         <div *ngFor="let item of immunization.identifier; index as i" class="max-width" style="display: flex;">
           <div *ngIf="item.system">
-            <p class="more">System{{i +1}}: {{item.system}}</p>
+            <p class="identifiers">System{{i +1}}: {{item.system}}</p>
           </div>
           <div *ngIf="item.value">
-            <p class="more">Value{{i +1}}: {{item.value}}</p>
+            <p class="identifiers">Value{{i +1}}: {{item.value}}</p>
           </div>
         </div>
       </div>

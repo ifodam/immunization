@@ -38,6 +38,9 @@ mat-card-header{
     font-size: 1.1vw;
     color: yellowgreen;
 }
+#subtitle:first-child{
+    color: rgb(255, 142, 89);
+}
 
 .content {
     font-size: 1vw;
@@ -61,4 +64,12 @@ mat-card-header{
 .more {
     font-size: 1vw;
     margin: 10px;
+}
+
+.identifiers{
+    font-size: 0.8vw;
+    margin-left: 30px;
+    margin-top: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px
 }
